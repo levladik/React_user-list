@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# User Invitations App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React application is designed to showcase a list of users with a search functionality. Users can be selected and invited, and a success screen is displayed when invitations are sent. Below are the key components of the application:
 
-## Available Scripts
+## Components
 
-In the project directory, you can run:
+### `App.js`
 
-### `npm start`
+- **State Hooks**: `users`, `invites`, `isLoading`, `searchValue`, and `success` are state variables used to manage the application's data and loading state.
+- **Fetch Users**: Uses the `useEffect` hook to fetch user data from the [Reqres API](https://reqres.in/api/users) when the component mounts.
+- **Handlers**: `onChangeSearchValue` handles changes in the search input, and `onClickInvite` and `onClickSendInvites` handle user invitation actions.
+- **Conditional Rendering**: Displays the `Success` component if invitations are sent successfully; otherwise, renders the `Users` component with user data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `Users.js`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Props**: Receives props such as `items` (users data), `isLoading`, `searchValue`, `onChangeSearchValue`, `invites`, `onClickInvite`, and `onClickSendInvites`.
+- **Search Bar**: Renders a search bar that allows users to filter the list based on name or email.
+- **Loading Skeleton**: Displays a loading skeleton when user data is still being fetched.
+- **Users List**: Maps through the user data, applies search filtering, and renders the `User` component for each user.
+- **Send Invitations Button**: Displays a "Send Invitations" button when there are selected invites.
 
-### `npm test`
+### `User.js`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Props**: Receives user data and handlers such as `onClickInvite` and `isInvited`.
+- **User Card**: Renders a user card with user details and an invite button.
+- **Invite Button**: Displays an "Invite" button that triggers the `onClickInvite` handler when clicked.
 
-### `npm run build`
+### `Success.js`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Props**: Receives the `count` of successfully sent invitations.
+- **Success Screen**: Renders a success screen with a message indicating the number of invitations successfully sent.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Run
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Ensure you have Node.js and npm installed on your machine.
+2. Clone the repository:
 
-### `npm run eject`
+   ```bash
+   git clone https://github.com/levladik/React_user-list.git
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Navigate to the project directory:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   cd React_user-list
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Install dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+5. Run the application:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   ```bash
+   npm start
+   ```
