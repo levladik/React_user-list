@@ -1,4 +1,6 @@
-# <a href='https://levladik.github.io/react-user-list/' target='blank'>User Invitations App</a>
+# User Invitations App
+
+Link: <a href='https://levladik.github.io/react-user-list/' target='_blank'>User Invitations App</a>
 
 This React application is designed to showcase a list of users with a search functionality. Users can be selected and invited, and a success screen is displayed when invitations are sent. Below are the key components of the application:
 
